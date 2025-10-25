@@ -4,6 +4,20 @@ body {
   width: 100vw;
   color: white;
 }
+
+header {
+  margin: 1rem;
+}
+
+.name {
+  margin: 0;
+}
+.name:hover {
+  color: #6300c6;
+  text-shadow: 0 0 6px #6300c6;
+  cursor: pointer;
+}
+
 .clock {
   border-radius: 50%;
   width: 28rem;
