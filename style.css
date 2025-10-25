@@ -9,6 +9,11 @@ header {
   margin: 1rem;
 }
 
+a{
+  text-decoration-line: none;
+  color: white;
+}
+
 .name {
   margin: 0;
 }
