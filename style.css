@@ -3,6 +3,7 @@ body {
   height: 100vh;
   width: 100vw;
   color: white;
+  margin: 0;
 }
 
 header {
@@ -16,6 +17,7 @@ a{
 
 .name {
   margin: 0;
+  font-size: 2rem;
 }
 .name:hover {
   color: #6300c6;
@@ -144,6 +146,11 @@ a{
 }
 
 @media (max-width: 570px) {
+
+  .name{
+    font-size: 5vw;
+  }
+  
   .clock {
     width: 25rem;
     height: 25rem;
