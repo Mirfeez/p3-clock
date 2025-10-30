@@ -10,19 +10,26 @@ header {
   margin: 1rem;
 }
 
-a{
+a {
   text-decoration-line: none;
   color: white;
 }
-
+a:hover {
+  transform: scale(1.1);
+}
 .name {
   margin: 0;
   font-size: 2rem;
+  display: inline-block; /* make transforms behave predictably */
+  margin-left: 1rem; /* move a little further from the left edge */
+  margin-top: 0.25rem; /* small downward offset */
+  transition: transform 200ms ease, color 200ms ease, text-shadow 200ms ease;
 }
 .name:hover {
   color: #6300c6;
   text-shadow: 0 0 6px #6300c6;
   cursor: pointer;
+  transform: scale(1.08); /* subtle grow on hover */
 }
 
 .clock {
@@ -39,7 +46,7 @@ a{
   justify-content: center;
   align-items: center;
   align-self: center;
-  margin-top: 7.5rem;
+  margin-top: 4rem;
   position: relative;
 }
 
@@ -57,18 +64,54 @@ a{
 
 /* Position numbers by rotating them around the center then translating outward
    The final rotate cancels the rotation so text stays upright */
-.num1  { transform: translate(-50%, -50%) rotate(30deg)  translateY(calc(-1 * var(--num-radius) * var(--clock-size))) rotate(-30deg); }
-.num2  { transform: translate(-50%, -50%) rotate(60deg)  translateY(calc(-1 * var(--num-radius) * var(--clock-size))) rotate(-60deg); }
-.num3  { transform: translate(-50%, -50%) rotate(90deg)  translateY(calc(-1 * var(--num-radius) * var(--clock-size))) rotate(-90deg); }
-.num4  { transform: translate(-50%, -50%) rotate(120deg) translateY(calc(-1 * var(--num-radius) * var(--clock-size))) rotate(-120deg); }
-.num5  { transform: translate(-50%, -50%) rotate(150deg) translateY(calc(-1 * var(--num-radius) * var(--clock-size))) rotate(-150deg); }
-.num6  { transform: translate(-50%, -50%) rotate(180deg) translateY(calc(-1 * var(--num-radius) * var(--clock-size))) rotate(-180deg); }
-.num7  { transform: translate(-50%, -50%) rotate(210deg) translateY(calc(-1 * var(--num-radius) * var(--clock-size))) rotate(-210deg); }
-.num8  { transform: translate(-50%, -50%) rotate(240deg) translateY(calc(-1 * var(--num-radius) * var(--clock-size))) rotate(-240deg); }
-.num9  { transform: translate(-50%, -50%) rotate(270deg) translateY(calc(-1 * var(--num-radius) * var(--clock-size))) rotate(-270deg); }
-.num10 { transform: translate(-50%, -50%) rotate(300deg) translateY(calc(-1 * var(--num-radius) * var(--clock-size))) rotate(-300deg); }
-.num11 { transform: translate(-50%, -50%) rotate(330deg) translateY(calc(-1 * var(--num-radius) * var(--clock-size))) rotate(-330deg); }
-.num12 { transform: translate(-50%, -50%) rotate(0deg)    translateY(calc(-1 * var(--num-radius) * var(--clock-size))) rotate(0deg); }
+.num1 {
+  transform: translate(-50%, -50%) rotate(30deg)
+    translateY(calc(-1 * var(--num-radius) * var(--clock-size))) rotate(-30deg);
+}
+.num2 {
+  transform: translate(-50%, -50%) rotate(60deg)
+    translateY(calc(-1 * var(--num-radius) * var(--clock-size))) rotate(-60deg);
+}
+.num3 {
+  transform: translate(-50%, -50%) rotate(90deg)
+    translateY(calc(-1 * var(--num-radius) * var(--clock-size))) rotate(-90deg);
+}
+.num4 {
+  transform: translate(-50%, -50%) rotate(120deg)
+    translateY(calc(-1 * var(--num-radius) * var(--clock-size))) rotate(-120deg);
+}
+.num5 {
+  transform: translate(-50%, -50%) rotate(150deg)
+    translateY(calc(-1 * var(--num-radius) * var(--clock-size))) rotate(-150deg);
+}
+.num6 {
+  transform: translate(-50%, -50%) rotate(180deg)
+    translateY(calc(-1 * var(--num-radius) * var(--clock-size))) rotate(-180deg);
+}
+.num7 {
+  transform: translate(-50%, -50%) rotate(210deg)
+    translateY(calc(-1 * var(--num-radius) * var(--clock-size))) rotate(-210deg);
+}
+.num8 {
+  transform: translate(-50%, -50%) rotate(240deg)
+    translateY(calc(-1 * var(--num-radius) * var(--clock-size))) rotate(-240deg);
+}
+.num9 {
+  transform: translate(-50%, -50%) rotate(270deg)
+    translateY(calc(-1 * var(--num-radius) * var(--clock-size))) rotate(-270deg);
+}
+.num10 {
+  transform: translate(-50%, -50%) rotate(300deg)
+    translateY(calc(-1 * var(--num-radius) * var(--clock-size))) rotate(-300deg);
+}
+.num11 {
+  transform: translate(-50%, -50%) rotate(330deg)
+    translateY(calc(-1 * var(--num-radius) * var(--clock-size))) rotate(-330deg);
+}
+.num12 {
+  transform: translate(-50%, -50%) rotate(0deg)
+    translateY(calc(-1 * var(--num-radius) * var(--clock-size))) rotate(0deg);
+}
 
 @property --deg {
   syntax: "<angle>";
@@ -146,16 +189,15 @@ a{
 }
 
 @media (max-width: 570px) {
-
-  .name{
+  .name {
     font-size: 5vw;
   }
-  
+
   .clock {
     width: 25rem;
     height: 25rem;
     --clock-size: 25rem;
-  --num-radius: 0.42;
+    --num-radius: 0.42;
   }
 
   .nums {
@@ -195,7 +237,7 @@ a{
     width: min(94vw, 23rem);
     height: min(94vw, 23rem);
     --clock-size: min(94vw, 23rem);
-  --num-radius: 0.42;
+    --num-radius: 0.42;
   }
 
   /* Number size proportional to the clock size (1.9rem @ 23rem) */
@@ -220,17 +262,17 @@ a{
   /* Hands scale relative to the clock so proportions remain consistent.
      Factors are derived from the original pixel values at 23rem. */
   .hand.hour {
-    width: calc(min(94vw, 23rem) * 0.0136);   /* ~5px at 23rem */
-    height: calc(min(94vw, 23rem) * 0.2038);  /* ~75px at 23rem */
+    width: calc(min(94vw, 23rem) * 0.0136); /* ~5px at 23rem */
+    height: calc(min(94vw, 23rem) * 0.2038); /* ~75px at 23rem */
   }
 
   .hand.minute {
-    width: calc(min(94vw, 23rem) * 0.00815);  /* ~3px at 23rem */
-    height: calc(min(94vw, 23rem) * 0.2853);  /* ~105px at 23rem */
+    width: calc(min(94vw, 23rem) * 0.00815); /* ~3px at 23rem */
+    height: calc(min(94vw, 23rem) * 0.2853); /* ~105px at 23rem */
   }
 
   .hand.second {
-    width: calc(min(94vw, 23rem) * 0.00543);  /* ~2px at 23rem */
-    height: calc(min(94vw, 23rem) * 0.3397);  /* ~125px at 23rem */
+    width: calc(min(94vw, 23rem) * 0.00543); /* ~2px at 23rem */
+    height: calc(min(94vw, 23rem) * 0.3397); /* ~125px at 23rem */
   }
 }
