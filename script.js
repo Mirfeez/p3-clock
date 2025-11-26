@@ -7,7 +7,6 @@
     const minutes = now.getMinutes();
     const seconds = now.getSeconds();
 
-    // Optional: keep logging for debugging (comment out to disable)
     // console.log(hours, minutes, seconds);
 
     const formatter = new Intl.DateTimeFormat("en-US", {

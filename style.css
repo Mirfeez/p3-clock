@@ -20,16 +20,16 @@ a:hover {
 .name {
   margin: 0;
   font-size: 2rem;
-  display: inline-block; /* make transforms behave predictably */
-  margin-left: 1rem; /* move a little further from the left edge */
-  margin-top: 0.25rem; /* small downward offset */
+  display: inline-block; 
+  margin-left: 1rem; 
+  margin-top: 0.25rem;
   transition: transform 200ms ease, color 200ms ease, text-shadow 200ms ease;
 }
 .name:hover {
-  color: #6300c6;
-  text-shadow: 0 0 6px #6300c6;
+  color: #00c3ff;
+  text-shadow: 0 0 6px #00c3ff;
   cursor: pointer;
-  transform: scale(1.08); /* subtle grow on hover */
+  transform: scale(1.08);
 }
 
 .clock {
