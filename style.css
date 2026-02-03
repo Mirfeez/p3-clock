@@ -36,9 +36,7 @@ a:hover {
   border-radius: 50%;
   width: 28rem;
   height: 28rem;
-  /* expose a variable so number placement can scale with clock size */
   --clock-size: 28rem;
-  /* radius (fraction of clock size) used to position numbers from center; lower = closer to center */
   --num-radius: 0.42;
   background-color: black;
   justify-self: center;
